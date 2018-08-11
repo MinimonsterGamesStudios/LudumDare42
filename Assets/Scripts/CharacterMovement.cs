@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             _isGrounded = true;
+        }
+
+        if (collision.gameObject.tag == "Lava")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
