@@ -330,6 +330,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &528332546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1553298362378954, guid: 5bdfff9834458544bbcb5e692f6c594d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1759594497}
+--- !u!114 &528332551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528332546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f1fa5ce0ec3af47a324db9ebffe668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 50
+  _moveForce: 0.5
 --- !u!1001 &668366791
 Prefab:
   m_ObjectHideFlags: 0
@@ -438,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206399507}
   - component: {fileID: 1206399506}
+  - component: {fileID: 1206399508}
   - component: {fileID: 1206399505}
   m_Layer: 0
   m_Name: Main Camera
@@ -506,6 +525,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206399508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1206399504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7623dc9d44f0fc340991366eb713473d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followedObject: {fileID: 528332546}
+  _smoothTime: 0.3
 --- !u!1001 &1597324209
 Prefab:
   m_ObjectHideFlags: 0
@@ -614,6 +646,16 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54828158528358732, guid: 5bdfff9834458544bbcb5e692f6c594d,
+        type: 2}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54828158528358732, guid: 5bdfff9834458544bbcb5e692f6c594d,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114010740790886654, guid: 5bdfff9834458544bbcb5e692f6c594d, type: 2}
