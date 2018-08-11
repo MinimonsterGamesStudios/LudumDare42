@@ -4,5 +4,6 @@
 public class TileModel : ScriptableObject
 {
     public string tag;
+    public new string name;
     public Sprite sprite;
 }
