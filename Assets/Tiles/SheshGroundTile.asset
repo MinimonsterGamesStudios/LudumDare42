@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52016763d3a9c95409d9781282ad1d20, type: 3}
-  m_Name: GroundTile
+  m_Name: SheshGroundTile
   m_EditorClassIdentifier: 
   tag: Ground
-  name: Ground
-  sprite: {fileID: 21300000, guid: c75ee0b974b566f4f9777ba3e513cbd9, type: 3}
+  name: CrossGroundTile
+  sprite: {fileID: 21300004, guid: ead6d5493526b2941b34754c918640ec, type: 3}
