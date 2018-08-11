@@ -5,7 +5,7 @@ public class TileModel : ScriptableObject
 {
     public string tag;
     public new string name;
-    public Sprite sprite;
+    public Material material;
     [Range(0, 1f)]
     public float rarity;
 }

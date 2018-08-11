@@ -4,12 +4,12 @@ public class Tile : MonoBehaviour
 {
     [SerializeField]
     TileModel _tile;
-    SpriteRenderer _spriteRenderer;
+    Renderer renderer;
 
     void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = _tile.sprite;
+        renderer = GetComponent<Renderer>();
+        renderer.material = _tile.material;
         gameObject.tag = _tile.tag;
 
     }

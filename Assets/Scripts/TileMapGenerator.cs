@@ -117,7 +117,7 @@ public class TileMapGenerator : MonoBehaviour
             }
         }
         Vector3 position = new Vector3(x, 0) + refPosition;
-        var tile = Instantiate(_groundTilePrefab, position, Quaternion.identity);
+        var tile = Instantiate(_groundTilePrefab, position, Quaternion.Euler(0, 180f, 0));
         tile.GetComponent<Tile>().SetTileModel(_groundTiles[randomIndex]);
         _generatedTiles.Add(tile);
     }

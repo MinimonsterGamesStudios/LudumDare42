@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Ground
   name: EmptyGroundTile
-  sprite: {fileID: 21300018, guid: ead6d5493526b2941b34754c918640ec, type: 3}
+  material: {fileID: 2100000, guid: 26d5fb0207697f04dad09444ed587a11, type: 2}
   rarity: 0.8

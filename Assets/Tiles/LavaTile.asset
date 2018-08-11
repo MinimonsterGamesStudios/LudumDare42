@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Lava
   name: Lava
-  sprite: {fileID: 21300000, guid: 7a6b10f8daa490140a8cebe084dd5491, type: 3}
+  material: {fileID: 2100000, guid: 68ea9cb049563db4bab896d6e12d94cf, type: 2}
   rarity: 0

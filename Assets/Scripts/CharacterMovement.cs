@@ -9,10 +9,11 @@ public class CharacterMovement : MonoBehaviour
     private float _moveForce = 50f;
     private Rigidbody _rigidbody;
     private bool _isGrounded = false;
-
+    private CharacterController _characterController;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
@@ -56,8 +57,7 @@ public class CharacterMovement : MonoBehaviour
                 dirY = -1;
             }
         }
-
-        _rigidbody.AddForce(new Vector3(dirX, dirY) * _moveForce * Time.fixedDeltaTime, ForceMode.Impulse);
+        //_rigidbody.AddForce(new Vector3(dirX, dirY) * _moveForce * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
