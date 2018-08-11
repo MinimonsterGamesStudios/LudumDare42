@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Jump();
         Move();
@@ -26,28 +26,50 @@ public class CharacterMovement : MonoBehaviour
         bool shouldJump = Mathf.Abs(Input.GetAxis("Jump")) > 0.1f;
         if (_isGrounded && shouldJump)
         {
-            _rigidbody.AddForce(Vector3.up * _jumpForce);
+            _rigidbody.AddForce(new Vector3(0, 0, -1) * _jumpForce, ForceMode.Impulse);
+            _isGrounded = false;
         }
     }
     private void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        if (Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0)
-        {
-            _rigidbody.AddForce(new Vector3(horizontalInput, 0, verticalInput) * _moveForce, ForceMode.VelocityChange);
+
+        float dirX = 0, dirY = 0;
+
+        if (Mathf.Abs(horizontalInput) > 0) {
+            if ( horizontalInput > 0)
+            {
+                dirX = 1;
+            } else
+            {
+                dirX = -1;
+            }
         }
+
+        if (Mathf.Abs(verticalInput) > 0)
+        {
+            if (verticalInput > 0)
+            {
+                dirY = 1;
+            } else
+            {
+                dirY = -1;
+            }
+        }
+
+        _rigidbody.AddForce(new Vector3(dirX, dirY) * _moveForce, ForceMode.Impulse);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            _isGrounded = true;
+            _isGrounded = true; 
         }
 
         if (collision.gameObject.tag == "Lava")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
