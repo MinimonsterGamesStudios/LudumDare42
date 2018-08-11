@@ -176,6 +176,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 9c51db613d4b7b340b0ba2d4d98686fc,
         type: 2}
+    - target: {fileID: 1810536197591652, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
   m_IsPrefabAsset: 0
@@ -253,9 +257,60 @@ Prefab:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1810536197591652, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1063939464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063939466}
+  - component: {fileID: 1063939465}
+  m_Layer: 0
+  m_Name: TileMapGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1063939465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063939464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fa7e719b0541448881627e7e8bc5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileTypes:
+  - {fileID: 11400000, guid: a8de883703d942e4785d565d191afbdf, type: 2}
+  - {fileID: 11400000, guid: fea6a993af66e224d962ea49501eb7a8, type: 2}
+  - {fileID: 11400000, guid: 9c51db613d4b7b340b0ba2d4d98686fc, type: 2}
+  _tilePrefab: {fileID: 1810536197591652, guid: 8497c5f3e73570a4a90c4ad47f1c2169,
+    type: 2}
+  _mapScale: {x: 16, y: 9}
+--- !u!4 &1063939466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063939464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.631127, y: 0.69797087, z: 0.748008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206399504
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +439,10 @@ Prefab:
     - target: {fileID: 212979012516546284, guid: 8497c5f3e73570a4a90c4ad47f1c2169,
         type: 2}
       propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810536197591652, guid: 8497c5f3e73570a4a90c4ad47f1c2169, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
