@@ -13,4 +13,15 @@ public class Tile : MonoBehaviour
         gameObject.tag = _tile.tag;
 
     }
+
+    public TileModel GetTileModel()
+    {
+        return _tile;
+    }
+
+    public void SetTileModel(TileModel tileModel)
+    {
+        _tile = tileModel;
+    }
+
 }
