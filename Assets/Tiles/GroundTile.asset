@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: GroundTile
   m_EditorClassIdentifier: 
   tag: Ground
+  name: Ground
   sprite: {fileID: 21300000, guid: c75ee0b974b566f4f9777ba3e513cbd9, type: 3}
