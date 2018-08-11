@@ -14,3 +14,4 @@ MonoBehaviour:
   tag: Ground
   name: CrossGroundTile
   sprite: {fileID: 21300000, guid: ead6d5493526b2941b34754c918640ec, type: 3}
+  rarity: 0.05

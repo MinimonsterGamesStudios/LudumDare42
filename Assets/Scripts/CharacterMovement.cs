@@ -27,7 +27,6 @@ public class CharacterMovement : MonoBehaviour
         if (_isGrounded && shouldJump)
         {
             _rigidbody.AddForce(new Vector3(0, 0, -1) * _jumpForce, ForceMode.Impulse);
-            _isGrounded = false;
         }
     }
     private void Move()
@@ -58,8 +57,9 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        _rigidbody.AddForce(new Vector3(dirX, dirY) * _moveForce, ForceMode.Impulse);
+        _rigidbody.AddForce(new Vector3(dirX, dirY) * _moveForce * Time.fixedDeltaTime, ForceMode.Impulse);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -69,7 +69,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Lava")
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

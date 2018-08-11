@@ -6,4 +6,6 @@ public class TileModel : ScriptableObject
     public string tag;
     public new string name;
     public Sprite sprite;
+    [Range(0, 1f)]
+    public float rarity;
 }

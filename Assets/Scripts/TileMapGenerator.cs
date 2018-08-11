@@ -29,10 +29,14 @@ public class TileMapGenerator : MonoBehaviour
 
     int[,] map;
     Vector3 refPosition = Vector3.zero;
-
+    float _sumOfGroundRarities = 0;
     void Start()
     {
         _shouldGenerate = true;
+        for (int i = 0; i < _groundTiles.Count; i++)
+        {
+            _sumOfGroundRarities += _groundTiles[i].rarity;
+        }
         _generatedTiles = new List<GameObject>();
         StartCoroutine("GenerateTileRows");
     }
@@ -67,20 +71,15 @@ public class TileMapGenerator : MonoBehaviour
     {
         for (int x = 0; x < width; x++)
         {
-            //Vector3 position = new Vector3(-width / 2 + x + .5f, -height / 2 + y + .5f) + refPosition;
-            Vector3 position = new Vector3(x, 0) + refPosition;
             if (map[x] == 1)
             {
+                Vector3 position = new Vector3(x, 0, 0.25f) + refPosition;
                 var tile = Instantiate(_lavaTilePrefab, position, Quaternion.identity);
                 _generatedTiles.Add(tile);
             }
             else
             {
-                Debug.Log("Ground!");
-                var tile = Instantiate(_groundTilePrefab, position, Quaternion.identity);
-                int randomIndex = Random.Range(0, _groundTiles.Count);
-                tile.GetComponent<Tile>().SetTileModel(_groundTiles[randomIndex]);
-                _generatedTiles.Add(tile);
+                GenerateRandomGroundTile(x);
             }
         }
     }
@@ -92,24 +91,34 @@ public class TileMapGenerator : MonoBehaviour
             refPosition += Vector3.up;
             for (int x = 0; x < width; x++)
             {
-                Vector3 position = new Vector3(x, 0) + refPosition;
-                var tile = Instantiate(_groundTilePrefab, position, Quaternion.identity);
-                int randomIndex = Random.Range(0, _groundTiles.Count);
-                tile.GetComponent<Tile>().SetTileModel(_groundTiles[randomIndex]);
-                _generatedTiles.Add(tile);
+                GenerateRandomGroundTile(x);
             }
         }
         while (_shouldGenerate)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.1f);
             refPosition += Vector3.up;
             GenerateMap();
         }
 
     }
 
-    void GenerateInitialMap()
+    void GenerateRandomGroundTile(int x)
     {
-        
+        float randomWeight = Random.Range(0, _sumOfGroundRarities);
+        int randomIndex = 0;
+        for (int i = 0; i < _groundTiles.Count; i++)
+        {
+            randomWeight -= _groundTiles[i].rarity;
+            if (randomWeight <= 0)
+            {
+                randomIndex = i;
+                break;
+            }
+        }
+        Vector3 position = new Vector3(x, 0) + refPosition;
+        var tile = Instantiate(_groundTilePrefab, position, Quaternion.identity);
+        tile.GetComponent<Tile>().SetTileModel(_groundTiles[randomIndex]);
+        _generatedTiles.Add(tile);
     }
 }
