@@ -175,7 +175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &892341781
 Light:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1063939466}
-  - component: {fileID: 1063939465}
+  - component: {fileID: 1063939467}
   m_Layer: 0
   m_Name: TileMapGenerator
   m_TagString: Untagged
@@ -242,31 +242,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1063939465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1063939464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1fa7e719b0541448881627e7e8bc5e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundTilePrefab: {fileID: 1927907801143808, guid: 8c91774cf4fdffa49940d6e5ba6cfd40,
-    type: 2}
-  _groundTiles:
-  - {fileID: 11400000, guid: a8de883703d942e4785d565d191afbdf, type: 2}
-  - {fileID: 11400000, guid: 50bdb2780e31c8944b622b5c03989544, type: 2}
-  - {fileID: 11400000, guid: 24d746428b06da943b92cb2578202027, type: 2}
-  - {fileID: 11400000, guid: 66d7f7afc020dea4e804a5706d48afaa, type: 2}
-  - {fileID: 11400000, guid: 7e952b0101b36174182208b095382842, type: 2}
-  _lavaTilePrefab: {fileID: 1144586972289964, guid: 24cd977f1837f274f9d73d8612b1b59e,
-    type: 2}
-  width: 10
-  seed: EThan
-  useRandomSeed: 1
-  randomFillPercent: 85
 --- !u!4 &1063939466
 Transform:
   m_ObjectHideFlags: 0
@@ -280,6 +255,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063939467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063939464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c68cd2d3c99204b8588c93567cbc83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundTilePrefab: {fileID: 1927907801143808, guid: 8c91774cf4fdffa49940d6e5ba6cfd40,
+    type: 2}
+  _groundTiles:
+  - {fileID: 11400000, guid: a8de883703d942e4785d565d191afbdf, type: 2}
+  - {fileID: 11400000, guid: 50bdb2780e31c8944b622b5c03989544, type: 2}
+  - {fileID: 11400000, guid: 24d746428b06da943b92cb2578202027, type: 2}
+  - {fileID: 11400000, guid: 66d7f7afc020dea4e804a5706d48afaa, type: 2}
+  - {fileID: 11400000, guid: 7e952b0101b36174182208b095382842, type: 2}
+  _lavaTilePrefab: {fileID: 1144586972289964, guid: 24cd977f1837f274f9d73d8612b1b59e,
+    type: 2}
+  randomFillPercent: 90
 --- !u!1 &1206399504
 GameObject:
   m_ObjectHideFlags: 0

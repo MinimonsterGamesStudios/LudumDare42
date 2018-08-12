@@ -41,6 +41,14 @@ public class GroundBreaker : MonoBehaviour
 
     IEnumerator BreakBlock()
     {
+        if (breakTime == null)
+        {
+            breakTime = _initialBreakTime;
+        }
+        if (breakTimeDiff == null)
+        {
+            breakTimeDiff = _initialBreakTimeDiff;
+        }
         yield return new WaitForSeconds(_initialBreakTime);
         breakTime += breakTimeDiff;
         yield return new WaitForSeconds((float)breakTime);
