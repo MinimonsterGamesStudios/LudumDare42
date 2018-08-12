@@ -7,21 +7,22 @@ public class FollowingCamera : MonoBehaviour
 
     [SerializeField]
     private GameObject _followedObject;
+
     [SerializeField]
     private float _smoothTime;
 
+    [SerializeField]
+    private Vector3 _offset;
+
     private Vector3 _velocity = Vector3.zero;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Camera camera = Camera.main;
+        Vector3 desiredPosition = _followedObject.transform.position + _offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, _smoothTime);
+        transform.position = smoothedPosition;
 
-        Vector3 targetPosition = _followedObject.transform.position;
-
-        Vector3 point = camera.WorldToViewportPoint(targetPosition);
-        Vector3 delta = targetPosition - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-        Vector3 destination = transform.position + delta;
-        transform.position = Vector3.SmoothDamp(transform.position, destination, ref _velocity, _smoothTime);
+       // transform.LookAt(_followedObject.transform);
     }
 }
+
