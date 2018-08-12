@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MapGenerator
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: c3c68cd2d3c99204b8588c93567cbc83,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _groundTilePrefab
+    value: 
+    objectReference: {fileID: 1927907801143808, guid: 8c91774cf4fdffa49940d6e5ba6cfd40,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.data[0]
+    value: 
+    objectReference: {fileID: 11400000, guid: a8de883703d942e4785d565d191afbdf, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.data[1]
+    value: 
+    objectReference: {fileID: 11400000, guid: 50bdb2780e31c8944b622b5c03989544, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.data[2]
+    value: 
+    objectReference: {fileID: 11400000, guid: 24d746428b06da943b92cb2578202027, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.data[3]
+    value: 
+    objectReference: {fileID: 11400000, guid: 66d7f7afc020dea4e804a5706d48afaa, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _groundTiles.Array.data[4]
+    value: 
+    objectReference: {fileID: 11400000, guid: 7e952b0101b36174182208b095382842, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _lavaTilePrefab
+    value: 
+    objectReference: {fileID: 1144586972289964, guid: 24cd977f1837f274f9d73d8612b1b59e,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: randomFillPercent
+    value: 90
+    objectReference: {fileID: 0}
