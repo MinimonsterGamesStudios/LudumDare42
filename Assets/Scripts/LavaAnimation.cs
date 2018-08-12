@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LavaAnimation : MonoBehaviour
 {
+    public float flowSpeed = 1f;
     public Vector2 uvAnimationRate;
     private Material material;
     Vector2 uvOffset = Vector2.zero;
@@ -16,7 +17,9 @@ public class LavaAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uvOffset += uvAnimationRate * Time.deltaTime;
-        material.mainTextureOffset = uvOffset;
+        //uvOffset += uvAnimationRate * Time.deltaTime;
+        //material.mainTextureOffset = uvOffset;
+
+        transform.position += Vector3.up * flowSpeed * Time.deltaTime;
     }
 }

@@ -32,9 +32,9 @@ public class RigibodyCharacter : MonoBehaviour
         _inputs.x = Input.GetAxis("Horizontal");
         _inputs.y = Input.GetAxis("Vertical");
         if (_inputs != Vector3.zero)
+        {
             transform.up = _inputs;
-
-
+        }
 
         // Check if player is falling into the abyss
         if (!_isGrounded && transform.position.z >= 1)

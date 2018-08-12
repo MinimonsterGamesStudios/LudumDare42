@@ -11,7 +11,8 @@ internal enum TileType
 
 public class Map : MonoBehaviour
 {
-
+    [SerializeField]
+    private float _mapGenerationSpeed;
     [Header("Tiles")]
     [Tooltip("Tiles that represent the ground")]
     [SerializeField]
@@ -20,9 +21,9 @@ public class Map : MonoBehaviour
     [SerializeField]
     private List<TileModel> _groundTiles;
 
-    [Space(10)]
-    [SerializeField]
-    private GameObject _lavaTilePrefab;
+    //[Space(10)]
+    //[SerializeField]
+    //private GameObject _lavaTilePrefab;
 
     [SerializeField]
     [Range(0, 100)]
@@ -99,11 +100,11 @@ public class Map : MonoBehaviour
         {
             if (x == 0 || x == width - 1)
             {
-                mapStripPlan[x] = TileType.Ground;
+                mapStripPlan[x] = TileType.Lava;
             }
             else
             {
-                mapStripPlan[x] = (Random.Range(0, 100) < randomFillPercent) ? TileType.Ground : TileType.Lava;
+                mapStripPlan[x] = (Random.Range(0, 100) < randomFillPercent) ? TileType.Lava : TileType.Ground;
             }
         }
 
@@ -118,13 +119,6 @@ public class Map : MonoBehaviour
         {
             TileType tileType = stripPlan[x];
             if (tileType == TileType.Ground)
-            {
-                Vector3 position = new Vector3(x, 0, 0.25f) + startPosition;
-                GameObject lava = Instantiate(_lavaTilePrefab, position, Quaternion.identity);
-                lava.transform.SetParent(_groupObject.transform);
-                createdTiles.Add(lava);
-            }
-            else
             {
                 GameObject ground = CreateRandomGroundTile(x, startPosition);
                 createdTiles.Add(ground);
@@ -161,7 +155,7 @@ public class Map : MonoBehaviour
     {
         while (_shouldGenerate)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(_mapGenerationSpeed);
             GenerateMap(2);
         }
     }
