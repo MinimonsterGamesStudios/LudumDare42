@@ -14,4 +14,5 @@ MonoBehaviour:
   tag: Ground
   name: CrossGroundTile
   material: {fileID: 2100000, guid: 3b677132388409d438e15e2db99f4be8, type: 2}
+  brokenTileMaterial: {fileID: 2100000, guid: 76e24a8b96796cc4888887c3983e3681, type: 2}
   rarity: 0.05

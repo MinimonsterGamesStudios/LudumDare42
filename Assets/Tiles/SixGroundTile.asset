@@ -14,4 +14,5 @@ MonoBehaviour:
   tag: Ground
   name: SixGroundTile
   material: {fileID: 2100000, guid: caab26f1b01adbc489dfd345d00c20f2, type: 2}
+  brokenTileMaterial: {fileID: 2100000, guid: d16e9ec6bd545de42a5b5d019c518831, type: 2}
   rarity: 0.01

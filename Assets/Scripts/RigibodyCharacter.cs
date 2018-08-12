@@ -42,6 +42,10 @@ public class RigibodyCharacter : MonoBehaviour
         {
             _jumpPressed = false;
         }
+        if(!_isGrounded && transform.position.z >= 1)
+        {
+            GameOver();
+        }
     }
 
 
@@ -54,7 +58,13 @@ public class RigibodyCharacter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Lava")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameOver();
         }
+    }
+
+    void GameOver()
+    {
+        GroundBreaker.ResetTimeValues();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

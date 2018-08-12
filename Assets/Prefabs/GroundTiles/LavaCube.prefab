@@ -22,11 +22,10 @@ GameObject:
   - component: {fileID: 33028531335535646}
   - component: {fileID: 23010660188107188}
   - component: {fileID: 65058021540088454}
-  - component: {fileID: 114475593688678904}
   - component: {fileID: 114731397560823894}
   m_Layer: 0
   m_Name: LavaCube
-  m_TagString: Untagged
+  m_TagString: Lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,18 +164,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114475593688678904
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144586972289964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da130160332bf8c4cbeafc0e654f7127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tile: {fileID: 11400000, guid: fea6a993af66e224d962ea49501eb7a8, type: 2}
 --- !u!114 &114731397560823894
 MonoBehaviour:
   m_ObjectHideFlags: 1

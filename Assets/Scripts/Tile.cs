@@ -3,15 +3,14 @@
 public class Tile : MonoBehaviour
 {
     [SerializeField]
-    TileModel _tile;
-    Renderer renderer;
+    private TileModel _tile;
+    private Renderer _renderer;
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
-        renderer.material = _tile.material;
+        _renderer = GetComponent<Renderer>();
+        _renderer.material = _tile.material;
         gameObject.tag = _tile.tag;
-
     }
 
     public TileModel GetTileModel()

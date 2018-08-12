@@ -86,7 +86,7 @@ public class TileMapGenerator : MonoBehaviour
 
     private IEnumerator GenerateTileRows()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             refPosition += Vector3.up;
             for (int x = 0; x < width; x++)

@@ -14,4 +14,5 @@ MonoBehaviour:
   tag: Ground
   name: EmptyGroundTile
   material: {fileID: 2100000, guid: 26d5fb0207697f04dad09444ed587a11, type: 2}
+  brokenTileMaterial: {fileID: 2100000, guid: 2ddd8d54475eda240b3ac47911e0308d, type: 2}
   rarity: 0.8

@@ -14,4 +14,5 @@ MonoBehaviour:
   tag: Ground
   name: EyeGroundTile
   material: {fileID: 2100000, guid: 5bc38822452eb0241a4d7eccac16cdc6, type: 2}
+  brokenTileMaterial: {fileID: 2100000, guid: 72feafdfabf71774b9ef894dd47da69d, type: 2}
   rarity: 0.05

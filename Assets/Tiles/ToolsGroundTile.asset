@@ -14,4 +14,5 @@ MonoBehaviour:
   tag: Ground
   name: ToolsGroundTile
   material: {fileID: 2100000, guid: d776c8d2f1f938948ab147c67a95e96a, type: 2}
+  brokenTileMaterial: {fileID: 2100000, guid: a6c170cf215098b4d89550f69230d2d3, type: 2}
   rarity: 0.05
