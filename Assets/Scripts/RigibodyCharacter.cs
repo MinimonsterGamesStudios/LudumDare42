@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class RigibodyCharacter : MonoBehaviour
 {
-    public float Speed = 5f;
+    public float movementSpeed = 5f;
+    public float jumpMovementSpeed = 2f;
+    private float currentMovementSpeed = 0;
     public float JumpHeight = 2f;
     public float GroundDistance = 0.2f;
     public LayerMask Ground;
@@ -32,17 +34,10 @@ public class RigibodyCharacter : MonoBehaviour
         if (_inputs != Vector3.zero)
             transform.up = _inputs;
 
-        if (Mathf.Abs(Input.GetAxis("Jump")) > 0 && _isGrounded && !_jumpPressed)
-        {
-            var jumpForce = Vector3.back * Mathf.Sqrt(JumpHeight * 2f * Physics.gravity.z);
-            _body.AddForce(jumpForce, ForceMode.VelocityChange);
-            _jumpPressed = true;
-        }
-        else
-        {
-            _jumpPressed = false;
-        }
-        if(!_isGrounded && transform.position.z >= 1)
+
+
+        // Check if player is falling into the abyss
+        if (!_isGrounded && transform.position.z >= 1)
         {
             GameOver();
         }
@@ -51,7 +46,18 @@ public class RigibodyCharacter : MonoBehaviour
 
     void FixedUpdate()
     {
-        _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+        if (Mathf.Abs(Input.GetAxis("Jump")) > 0 && _isGrounded && !_jumpPressed)
+        {
+            var jumpForce = Vector3.back * Mathf.Sqrt(JumpHeight * 2f * Physics.gravity.z);
+            _body.AddForce(jumpForce, ForceMode.VelocityChange);
+            _jumpPressed = true;
+            _body.MovePosition(_body.position + _inputs * jumpMovementSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            _body.MovePosition(_body.position + _inputs * movementSpeed * Time.fixedDeltaTime);
+            _jumpPressed = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

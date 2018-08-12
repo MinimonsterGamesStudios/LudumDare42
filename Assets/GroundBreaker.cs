@@ -21,6 +21,7 @@ public class GroundBreaker : MonoBehaviour
     private Renderer _renderer;
     private Material _brokenTileMaterial;
 
+    private bool _blockIsBroken = false;
 
     void Start()
     {
@@ -39,6 +40,13 @@ public class GroundBreaker : MonoBehaviour
         StartCoroutine("BreakBlock");
     }
 
+    private void Update()
+    {
+        if (_blockIsBroken && !_renderer.isVisible)
+        {
+            Destroy(gameObject);
+        }
+    }
     IEnumerator BreakBlock()
     {
         if (breakTime == null)
@@ -58,7 +66,10 @@ public class GroundBreaker : MonoBehaviour
         }
         _renderer.material = _brokenTileMaterial;
         _animator.enabled = true;
+        yield return new WaitForSeconds(30);
+        _blockIsBroken = true;
     }
+
 
     public static void ResetTimeValues()
     {
