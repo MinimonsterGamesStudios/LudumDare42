@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 528332546}
+  lava: {fileID: 1603923769}
   MapGenerator: {fileID: 1063939464}
   uiCanvas: {fileID: 1986569614}
   instance: {fileID: 0}
@@ -545,9 +546,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4336743159217348, guid: 24cd977f1837f274f9d73d8612b1b59e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 10
+    - target: {fileID: 114731397560823894, guid: 24cd977f1837f274f9d73d8612b1b59e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24cd977f1837f274f9d73d8612b1b59e, type: 2}
@@ -953,6 +955,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1603923769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1144586972289964, guid: 24cd977f1837f274f9d73d8612b1b59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 821622295}
 --- !u!1 &1672777109
 GameObject:
   m_ObjectHideFlags: 0

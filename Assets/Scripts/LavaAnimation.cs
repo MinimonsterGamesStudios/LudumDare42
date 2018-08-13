@@ -8,6 +8,8 @@ public class LavaAnimation : MonoBehaviour
     public Vector2 uvAnimationRate;
     private Material material;
     Vector2 uvOffset = Vector2.zero;
+    public bool animateTexture = true;
+    public bool beginFlow = false;
     // Use this for initialization
     void Start()
     {
@@ -17,9 +19,14 @@ public class LavaAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //uvOffset += uvAnimationRate * Time.deltaTime;
-        //material.mainTextureOffset = uvOffset;
-
-        transform.position += Vector3.up * flowSpeed * Time.deltaTime;
+        if (animateTexture)
+        {
+            uvOffset += uvAnimationRate * Time.deltaTime;
+            material.mainTextureOffset = uvOffset;
+        }
+        else if (beginFlow)
+        {
+            transform.position += Vector3.up * flowSpeed * Time.deltaTime;
+        }
     }
 }

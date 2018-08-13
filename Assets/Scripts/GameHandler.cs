@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
     public GameObject player;
+    public GameObject lava;
     public GameObject MapGenerator;
     public GameObject uiCanvas;
     [HideInInspector]
@@ -34,6 +35,9 @@ public class GameHandler : MonoBehaviour {
 
     public void PlayGame()
     {
+        var lavaAnimationScript = lava.GetComponent<LavaAnimation>();
+        lavaAnimationScript.animateTexture = false;
+        lavaAnimationScript.beginFlow = true;
         uiCanvas.SetActive(false);
         MapGenerator.SetActive(true);
         player.SetActive(true);
