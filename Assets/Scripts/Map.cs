@@ -21,9 +21,13 @@ public class Map : MonoBehaviour
     [SerializeField]
     private List<TileModel> _groundTiles;
 
-    //[Space(10)]
-    //[SerializeField]
-    //private GameObject _lavaTilePrefab;
+    [Space(10)]
+    [Header("Enemies")]
+    [Range(0, 1)]
+    [SerializeField]
+    private float _enemySpawnRate;
+    [SerializeField]
+    private List<GameObject> _enemies;
 
     [SerializeField]
     [Range(0, 100)]
@@ -35,7 +39,7 @@ public class Map : MonoBehaviour
     private Vector3 _mapUpperPosition = Vector3.zero;
     private float _groundRaritiesSum = 0;
 
-    private GameObject _groupObject;
+    private static GameObject _groupObject;
     private bool _shouldGenerate = true;
 
 
@@ -50,7 +54,7 @@ public class Map : MonoBehaviour
         StartCoroutine("GenerateTilesAutomatically");
     }
 
-    public GameObject GetTileAt(int x, int y)
+    public static GameObject GetTileAt(int x, int y)
     {
         Transform groupTransform = _groupObject.transform;
 
@@ -87,10 +91,25 @@ public class Map : MonoBehaviour
             TileType[] stripPlan = GenerateRandomMapStripPlan(_mapStripWidth);
 
             List<GameObject> tiles = CreateTilesFromStripPlan(stripPlan, _mapUpperPosition);
+            CreateRandomEnemiesFromStripPlan(stripPlan, _mapUpperPosition);
             _mapUpperPosition += Vector3.up;
         }
     }
-
+    private void CreateRandomEnemiesFromStripPlan(TileType[] stripPlan, Vector3 startPosition)
+    {
+        for (int i = 0; i < stripPlan.Length; i++)
+        {
+            var tileType = stripPlan[i];
+            if (tileType == TileType.Ground)
+            {
+                if (Random.Range(0, 100) < _enemySpawnRate * 100)
+                {
+                    Vector3 position = new Vector3(i, 0, -1) + startPosition;
+                    Instantiate(_enemies[0], position, Quaternion.identity);
+                }
+            }
+        }
+    }
     private TileType[] GenerateRandomMapStripPlan(int width)
     {
         TileType[] mapStripPlan = new TileType[width];
@@ -122,6 +141,13 @@ public class Map : MonoBehaviour
             {
                 GameObject ground = CreateRandomGroundTile(x, startPosition);
                 createdTiles.Add(ground);
+            }
+            else
+            {
+                var emptyGameObject = new GameObject("Empty Cube");
+                Vector3 position = new Vector3(x, 0) + startPosition;
+                emptyGameObject.transform.position = position;
+                createdTiles.Add(emptyGameObject);
             }
         }
 

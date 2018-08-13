@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Lava
   - Wall
+  - Shot
+  - Enemy
   layers:
   - Default
   - TransparentFX

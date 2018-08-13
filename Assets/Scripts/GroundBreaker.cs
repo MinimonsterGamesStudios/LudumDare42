@@ -52,21 +52,14 @@ public class GroundBreaker : MonoBehaviour
     }
     IEnumerator BreakBlock()
     {
-        if (breakTime == null)
-        {
-            breakTime = _initialBreakTime;
-        }
-        if (breakTimeDiff == null)
-        {
-            breakTimeDiff = _initialBreakTimeDiff;
-        }
-        if (onCollisionbreakTimeDiff == null)
-        {
-            onCollisionbreakTimeDiff = _initialOnCollisionBreakTime;
-        }
         yield return new WaitForSeconds(_initialBreakTime);
+
+        InitTimeValues();
+
         breakTime += breakTimeDiff;
+
         yield return new WaitForSeconds((float)breakTime + Random.Range(0, 5));
+
         if (breakTimeDiff - _breakTimeAcceleration > _minBreakTimeDiff)
         {
             breakTimeDiff -= _breakTimeAcceleration;
@@ -83,6 +76,7 @@ public class GroundBreaker : MonoBehaviour
 
     IEnumerator BreakBlockOnCollision()
     {
+        InitTimeValues();
         _renderer.material = _brokenTileMaterial;
         yield return new WaitForSeconds((float)onCollisionbreakTimeDiff);
         _animator.enabled = true;
@@ -100,5 +94,26 @@ public class GroundBreaker : MonoBehaviour
     {
         breakTime = null;
         breakTimeDiff = null;
+        onCollisionbreakTimeDiff = null;
+    }
+
+    private void InitTimeValues()
+    {
+        if (breakTime == null)
+        {
+            breakTime = _initialBreakTime;
+        }
+        if (breakTimeDiff == null)
+        {
+            breakTimeDiff = _initialBreakTimeDiff;
+        }
+        if (onCollisionbreakTimeDiff == null)
+        {
+            onCollisionbreakTimeDiff = _initialOnCollisionBreakTime;
+        }
+        if (onCollisionbreakTimeDiff == null)
+        {
+            onCollisionbreakTimeDiff = _initialOnCollisionBreakTime;
+        }
     }
 }

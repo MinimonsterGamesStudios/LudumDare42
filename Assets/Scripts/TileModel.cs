@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTile", menuName = "Tiles/New Tile")]
+[CreateAssetMenu(fileName = "NewTile", menuName = "DataModels/New Tile")]
 public class TileModel : ScriptableObject
 {
     public string tag;

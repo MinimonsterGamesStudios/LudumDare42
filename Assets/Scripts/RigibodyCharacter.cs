@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RigibodyCharacter : MonoBehaviour
 {
+    public AudioClip rockLand;
+
     public float movementSpeed = 5f;
     public float jumpMovementSpeed = 2f;
     private float currentMovementSpeed = 0;
@@ -13,12 +15,16 @@ public class RigibodyCharacter : MonoBehaviour
     public LayerMask Ground;
 
     private Rigidbody _body;
+    private AudioSource _audioSource;
     private Vector3 _inputs = Vector3.zero;
     private bool _isGrounded = true;
     private Transform _groundChecker;
     private bool _jumpPressed = false;
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
+        _audioSource.clip = rockLand;
         _body = GetComponent<Rigidbody>();
         _groundChecker = transform.GetChild(0);
     }
@@ -55,16 +61,24 @@ public class RigibodyCharacter : MonoBehaviour
         }
         else
         {
-            _body.MovePosition(_body.position + _inputs * movementSpeed * Time.fixedDeltaTime);
-            _jumpPressed = false;
+            if(Input.GetAxisRaw("Aim") != 1)
+            {
+                _body.MovePosition(_body.position + _inputs * movementSpeed * Time.fixedDeltaTime);
+                _jumpPressed = false;
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Lava")
+        if (collision.gameObject.tag == "Lava" || collision.gameObject.tag == "Enemy")
         {
             GameOver();
+        }
+        else if(collision.gameObject.tag == "Ground")
+        {
+            _audioSource.clip = rockLand;
+            _audioSource.Play();
         }
     }
 
