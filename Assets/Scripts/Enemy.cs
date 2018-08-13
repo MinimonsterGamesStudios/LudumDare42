@@ -6,4 +6,5 @@ public class Enemy : ScriptableObject
     public float life;
     public bool doesMove;
     public float movementSpeed;
+    public AudioClip hitAudio;
 }

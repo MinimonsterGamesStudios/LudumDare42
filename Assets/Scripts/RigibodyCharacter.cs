@@ -61,10 +61,10 @@ public class RigibodyCharacter : MonoBehaviour
         }
         else
         {
-            if(Input.GetAxisRaw("Aim") != 1)
+            _jumpPressed = false;
+            if (Input.GetAxisRaw("Aim") != 1)
             {
                 _body.MovePosition(_body.position + _inputs * movementSpeed * Time.fixedDeltaTime);
-                _jumpPressed = false;
             }
         }
     }
@@ -84,6 +84,7 @@ public class RigibodyCharacter : MonoBehaviour
 
     void GameOver()
     {
+        gameObject.GetComponent<Collider>().enabled = false;
         GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameHandler>().GameOver();
     }
 }

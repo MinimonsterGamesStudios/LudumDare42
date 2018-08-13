@@ -14,3 +14,4 @@ MonoBehaviour:
   life: 3
   doesMove: 1
   movementSpeed: 1
+  hitAudio: {fileID: 8300000, guid: 3b8c0aa3eeef9ea46bd3682ce8853c6f, type: 3}
