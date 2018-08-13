@@ -84,7 +84,6 @@ public class RigibodyCharacter : MonoBehaviour
 
     void GameOver()
     {
-        GroundBreaker.ResetTimeValues();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameHandler>().GameOver();
     }
 }

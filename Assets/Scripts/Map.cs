@@ -47,7 +47,7 @@ public class Map : MonoBehaviour
     {
         _groundRaritiesSum = _groundTiles.Sum(tile => tile.rarity);
         _groupObject = new GameObject("Ethan The King");
-
+        
         CreateStartingPlatform(5);
         GenerateMap(20);
 
@@ -147,6 +147,7 @@ public class Map : MonoBehaviour
                 var emptyGameObject = new GameObject("Empty Cube");
                 Vector3 position = new Vector3(x, 0) + startPosition;
                 emptyGameObject.transform.position = position;
+                emptyGameObject.transform.SetParent(_groupObject.transform);
                 createdTiles.Add(emptyGameObject);
             }
         }
